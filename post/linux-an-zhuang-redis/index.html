@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | Junmade</title>
+<title>Linux安装 Redis | Junmade</title>
 <meta name="description" content="程序员最讨厌的四件事：写注释、写文档、别人不写注释、别人不写文档">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -91,50 +91,74 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">Linux安装 Redis</h2>
+            <div class="post-date">2019-05-29</div>
+            
+            <div class="post-content">
+              <h5 id="获取资源并解压">获取资源并解压</h5>
+<pre><code class="language-shell"># 获取资源
+wget http://download.redis.io/releases/redis-4.0.8.tar.gz
+# 解压
+tar xzvf redis-4.0.8.tar.gz
+</code></pre>
+<h5 id="安装">安装</h5>
+<pre><code class="language-sh">cd redis-4.0.8
+make
+cd src
+make install
+</code></pre>
+<h5 id="部署">部署</h5>
+<pre><code class="language-shell"># 创建目录
+mkdir -p /usr/local/redis/bin
+mkdir -p /usr/local/redis/etc
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+cp ./redis-4.0.8/redis.conf /usr/local/redis/etc
+cp ./redis-4.0.8/src/redis-server /usr/local/redis/bin
+</code></pre>
+<pre><code class="language-shell">vi /usr/local/redis/etc/redis.conf
+# 后台启动
+daemonize yes
+# 远程连接
+# bind 127.0.0.1
+# 关闭受保护
+protected-mode no
+
+
+
+# 开机自启动
+vi /etc/rc.local
+# 添加以下内容
+/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf 
+</code></pre>
+<h5 id="启动">启动</h5>
+<pre><code class="language-shell">/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf 
+</code></pre>
+
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
-              
+              <div class="tag-container">
                 
-                  <article class="post">
-                    <a href="https://Junmade.github.io/post/linux-an-zhuang-redis">
-                      <h2 class="post-title">
-                        Linux安装 Redis
-                      </h2>
-                    </a>
-                  </article>
+                  <a href="https://Junmade.github.io/tag/IEXUDUztU" class="tag">
+                    Linux
+                  </a>
                 
-              
-                
-                  <article class="post">
-                    <a href="https://Junmade.github.io/post/linux-an-zhuang-mysql57">
-                      <h2 class="post-title">
-                        Linux安装 MySQL5.7
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://Junmade.github.io/post/linux-an-zhuang-jdk">
-                      <h2 class="post-title">
-                        Linux安装 JDK
-                      </h2>
-                    </a>
-                  </article>
-                
-              
+              </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://Junmade.github.io/post/linux-an-zhuang-mysql57">
+                  <h3 class="post-title">
+                    Linux安装 MySQL5.7
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>
