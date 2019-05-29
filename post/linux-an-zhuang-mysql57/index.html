@@ -1,22 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://Junmade.github.io</id>
-    <title>Junmade</title>
-    <updated>2019-05-29T02:02:35.119Z</updated>
-    <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://Junmade.github.io"/>
-    <link rel="self" href="https://Junmade.github.io/atom.xml"/>
-    <subtitle>程序员最讨厌的四件事：写注释、写文档、别人不写注释、别人不写文档</subtitle>
-    <logo>https://Junmade.github.io/images/avatar.png</logo>
-    <icon>https://Junmade.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, Junmade</rights>
-    <entry>
-        <title type="html"><![CDATA[Linux安装 MySQL5.7]]></title>
-        <id>https://Junmade.github.io/post/linux-an-zhuang-mysql57</id>
-        <link href="https://Junmade.github.io/post/linux-an-zhuang-mysql57">
-        </link>
-        <updated>2019-05-29T02:01:15.000Z</updated>
-        <content type="html"><![CDATA[<p>​	1. 安装前，检测系统是否自带安装 MySQL，如果你系统有安装，那可以选择进行卸载;</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Linux安装 MySQL5.7 | Junmade</title>
+<meta name="description" content="程序员最讨厌的四件事：写注释、写文档、别人不写注释、别人不写文档">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://Junmade.github.io/favicon.ico?v=1559095352567">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://Junmade.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://Junmade.github.io">
+        <img src="https://Junmade.github.io/images/avatar.png?v=1559095352567" class="site-logo">
+        <h1 class="site-title">Junmade</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      程序员最讨厌的四件事：写注释、写文档、别人不写注释、别人不写文档
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://Junmade.github.io/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Linux安装 MySQL5.7</h2>
+            <div class="post-date">2019-05-29</div>
+            
+            <div class="post-content">
+              <p>​	1. 安装前，检测系统是否自带安装 MySQL，如果你系统有安装，那可以选择进行卸载;</p>
 <pre><code class="language-shell">[root@centos-linux Desktop]# yum list installed | grep mysql
 mysql-libs.i686          5.1.66-2.el6_3   @anaconda-CentOS-201303020136.i386/6.4
 [root@centos-linux Desktop]# yum -y remove mysql-libs.i686
@@ -110,51 +190,55 @@ default-character-set=utf8
 <p>​	修改好之后重启mysqld服务：</p>
 <pre><code class="language-sh">[root@centos-linux Desktop]# service mysqld restart
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Linux安装 JDK]]></title>
-        <id>https://Junmade.github.io/post/linux-an-zhuang-jdk</id>
-        <link href="https://Junmade.github.io/post/linux-an-zhuang-jdk">
-        </link>
-        <updated>2019-05-29T01:40:48.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="linux-安装-jdk">LINUX 安装 JDK</h3>
-<h5 id="1-安装-jdk">1. 安装 JDK</h5>
-<ul>
-<li>
-<p>首先，需要去<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">官网</a>下载 JDK，将 JDK安装包放入 Linux服务器中：</p>
-<pre><code class="language-shell">scp ./jdk-8u201-linux-x64.tar root@39.96.55.184:/root/
-</code></pre>
-</li>
-<li>
-<p>解压安装包</p>
-<pre><code class="language-shell">mdkri /usr/java
--- 解压
-tar -xvf jdk-8u201-linux-x64.tar -C /usr/java/
-</code></pre>
-</li>
-</ul>
-<h5 id="2-设置环境变量">2. 设置环境变量</h5>
-<pre><code class="language-shell">## 编辑 profile文件
-vi /etc/profile
 
-## 添加以下配置
-export JAVA_HOME=/usr/java/jdk1.8.0_201   
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export  PATH=${JAVA_HOME}/bin:$PATH
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://Junmade.github.io/tag/IEXUDUztU" class="tag">
+                    Linux
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://Junmade.github.io/post/linux-an-zhuang-jdk">
+                  <h3 class="post-title">
+                    Linux安装 JDK
+                  </h3>
+                </a>
+              </div>
+            
 
-## 执行 profile文件
-source /etc/profile
-</code></pre>
-<h5 id="3-验证-jdk">3. 验证 JDK</h5>
-<pre><code class="language-shell">java -version
+            
 
-## 显示
-java version &quot;1.8.0_201&quot;
-Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
-Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
-</code></pre>
-]]></content>
-    </entry>
-</feed>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
