@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://Junmade.github.io</id>
     <title>Junmade</title>
-    <updated>2019-05-29T02:05:03.804Z</updated>
+    <updated>2019-05-29T02:07:40.086Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://Junmade.github.io"/>
     <link rel="self" href="https://Junmade.github.io/atom.xml"/>
@@ -10,6 +10,109 @@
     <logo>https://Junmade.github.io/images/avatar.png</logo>
     <icon>https://Junmade.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Junmade</rights>
+    <entry>
+        <title type="html"><![CDATA[Linux命令]]></title>
+        <id>https://Junmade.github.io/post/linux-ming-ling</id>
+        <link href="https://Junmade.github.io/post/linux-ming-ling">
+        </link>
+        <updated>2019-05-29T02:07:13.000Z</updated>
+        <content type="html"><![CDATA[<h5 id="1-scp">1. scp</h5>
+<ul>
+<li>
+<p>文件</p>
+<pre><code class="language-sh"> -- 上传本地文件到服务器
+ scp /path/filename username@servername:/path;
+ 
+ -- 从服务器上下载文件
+ scp username@servername:/path/filename /path;
+</code></pre>
+</li>
+<li>
+<p>目录</p>
+<pre><code class="language-shell">-- 上传目录到服务器
+scp -r /path username@servername:/path
+-- 从服务器下载目录
+scp -r username@servername:/path /path
+</code></pre>
+</li>
+</ul>
+<hr>
+<h4 id="2-tar">2. tar</h4>
+<pre><code class="language-shell">-- 打包
+tar -cvf *.tar filename
+
+-- 解压
+tar -xvf *.tar
+</code></pre>
+<pre><code class="language-sh">-- 查看多少位
+getconf LONG_BIT
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux定时备份]]></title>
+        <id>https://Junmade.github.io/post/linux-ding-shi-bei-fen</id>
+        <link href="https://Junmade.github.io/post/linux-ding-shi-bei-fen">
+        </link>
+        <updated>2019-05-29T02:06:26.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>
+<p>创建目录</p>
+<pre><code class="language-shell">su - oracle
+sqlplus / as sysdba
+
+## 创建逻辑目录
+create directory bakTemp as '/data/bak';
+## 查看所有目录
+select * from dba_directories;
+
+quit;
+</code></pre>
+</li>
+<li>
+<p>备份数据</p>
+<pre><code class="language-shell">expdp username/password schemas=schemas dumpfile=expdp.dmp DIRECTORY=bakTemp;
+</code></pre>
+</li>
+<li>
+<p>恢复数据</p>
+<pre><code class="language-shell">impdp username/password schemas=schemas dumpfile=expdp.dmp DIRECTORY=bakTemp;
+</code></pre>
+</li>
+<li>
+<p>定时</p>
+<pre><code class="language-shell">## 查看定时任务
+crontab -l
+## 删除定时任务
+crontab -r
+## 创建定时任务
+crontab file.sh
+crontab -e 命令
+</code></pre>
+</li>
+<li>
+<p>定时备份</p>
+<pre><code class="language-shell">crontabCommand.sh
+
+## 获取当前时间 YYYYmmdd
+current_date=`date +%Y%m%d`
+## 加载配置文件
+## source /etc/profile
+## 执行备份命令
+expdp username/password schemas=schemas dumpfile=expdp.dmp DIRECTORY=bakTemp
+</code></pre>
+<pre><code class="language-shell">crontabRule.sh
+
+## 每天晚上 2点执行任务
+0 2 * * * /data/bak/crontabCommand.sh
+</code></pre>
+<pre><code class="language-shell">## 执行 crontab
+crontab ./crontabRule.sh
+</code></pre>
+</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Linux安装 Redis]]></title>
         <id>https://Junmade.github.io/post/linux-an-zhuang-redis</id>

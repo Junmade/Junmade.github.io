@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | Junmade</title>
+<title>Linux定时备份 | Junmade</title>
 <meta name="description" content="程序员最讨厌的四件事：写注释、写文档、别人不写注释、别人不写文档">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -92,14 +92,86 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">Linux定时备份</h2>
+            <div class="post-date">2019-05-29</div>
             
             <div class="post-content">
-              <p>一枚无名小辈~~~</p>
+              <ol>
+<li>
+<p>创建目录</p>
+<pre><code class="language-shell">su - oracle
+sqlplus / as sysdba
+
+## 创建逻辑目录
+create directory bakTemp as '/data/bak';
+## 查看所有目录
+select * from dba_directories;
+
+quit;
+</code></pre>
+</li>
+<li>
+<p>备份数据</p>
+<pre><code class="language-shell">expdp username/password schemas=schemas dumpfile=expdp.dmp DIRECTORY=bakTemp;
+</code></pre>
+</li>
+<li>
+<p>恢复数据</p>
+<pre><code class="language-shell">impdp username/password schemas=schemas dumpfile=expdp.dmp DIRECTORY=bakTemp;
+</code></pre>
+</li>
+<li>
+<p>定时</p>
+<pre><code class="language-shell">## 查看定时任务
+crontab -l
+## 删除定时任务
+crontab -r
+## 创建定时任务
+crontab file.sh
+crontab -e 命令
+</code></pre>
+</li>
+<li>
+<p>定时备份</p>
+<pre><code class="language-shell">crontabCommand.sh
+
+## 获取当前时间 YYYYmmdd
+current_date=`date +%Y%m%d`
+## 加载配置文件
+## source /etc/profile
+## 执行备份命令
+expdp username/password schemas=schemas dumpfile=expdp.dmp DIRECTORY=bakTemp
+</code></pre>
+<pre><code class="language-shell">crontabRule.sh
+
+## 每天晚上 2点执行任务
+0 2 * * * /data/bak/crontabCommand.sh
+</code></pre>
+<pre><code class="language-shell">## 执行 crontab
+crontab ./crontabRule.sh
+</code></pre>
+</li>
+</ol>
 
             </div>
             
+              <div class="tag-container">
+                
+                  <a href="https://Junmade.github.io/tag/IEXUDUztU" class="tag">
+                    Linux
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://Junmade.github.io/post/linux-an-zhuang-redis">
+                  <h3 class="post-title">
+                    Linux安装 Redis
+                  </h3>
+                </a>
+              </div>
             
 
             

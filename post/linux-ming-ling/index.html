@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | Junmade</title>
+<title>Linux命令 | Junmade</title>
 <meta name="description" content="程序员最讨厌的四件事：写注释、写文档、别人不写注释、别人不写文档">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -92,14 +92,61 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于</h2>
-            <div class="post-date">2019-01-25</div>
+            <h2 class="post-title">Linux命令</h2>
+            <div class="post-date">2019-05-29</div>
             
             <div class="post-content">
-              <p>一枚无名小辈~~~</p>
+              <h5 id="1-scp">1. scp</h5>
+<ul>
+<li>
+<p>文件</p>
+<pre><code class="language-sh"> -- 上传本地文件到服务器
+ scp /path/filename username@servername:/path;
+ 
+ -- 从服务器上下载文件
+ scp username@servername:/path/filename /path;
+</code></pre>
+</li>
+<li>
+<p>目录</p>
+<pre><code class="language-shell">-- 上传目录到服务器
+scp -r /path username@servername:/path
+-- 从服务器下载目录
+scp -r username@servername:/path /path
+</code></pre>
+</li>
+</ul>
+<hr>
+<h4 id="2-tar">2. tar</h4>
+<pre><code class="language-shell">-- 打包
+tar -cvf *.tar filename
+
+-- 解压
+tar -xvf *.tar
+</code></pre>
+<pre><code class="language-sh">-- 查看多少位
+getconf LONG_BIT
+</code></pre>
 
             </div>
             
+              <div class="tag-container">
+                
+                  <a href="https://Junmade.github.io/tag/IEXUDUztU" class="tag">
+                    Linux
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://Junmade.github.io/post/linux-ding-shi-bei-fen">
+                  <h3 class="post-title">
+                    Linux定时备份
+                  </h3>
+                </a>
+              </div>
             
 
             
