@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | Junmade</title>
+<title>Linux安装 JDK | Junmade</title>
 <meta name="description" content="程序员最讨厌的四件事：写注释、写文档、别人不写注释、别人不写文档">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -97,40 +97,73 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">Linux安装 JDK</h2>
+            <div class="post-date">2019-05-29</div>
+            
+            <div class="post-content">
+              <h3 id="linux-安装-jdk">LINUX 安装 JDK</h3>
+<h5 id="1-安装-jdk">1. 安装 JDK</h5>
+<ul>
+<li>
+<p>首先，需要去<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">官网</a>下载 JDK，将 JDK安装包放入 Linux服务器中：</p>
+<pre><code class="language-shell">scp ./jdk-8u201-linux-x64.tar root@39.96.55.184:/root/
+</code></pre>
+</li>
+<li>
+<p>解压安装包</p>
+<pre><code class="language-shell">mdkri /usr/java
+-- 解压
+tar -xvf jdk-8u201-linux-x64.tar -C /usr/java/
+</code></pre>
+</li>
+</ul>
+<h5 id="2-设置环境变量">2. 设置环境变量</h5>
+<pre><code class="language-shell">## 编辑 profile文件
+vi /etc/profile
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+## 添加以下配置
+export JAVA_HOME=/usr/java/jdk1.8.0_201   
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export  PATH=${JAVA_HOME}/bin:$PATH
+
+## 执行 profile文件
+source /etc/profile
+</code></pre>
+<h5 id="3-验证-jdk">3. 验证 JDK</h5>
+<pre><code class="language-shell">java -version
+
+## 显示
+java version &quot;1.8.0_201&quot;
+Java(TM) SE Runtime Environment (build 1.8.0_201-b09)
+Java HotSpot(TM) 64-Bit Server VM (build 25.201-b09, mixed mode)
+</code></pre>
+
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
-              
+              <div class="tag-container">
                 
-                  <article class="post">
-                    <a href="https://Junmade.github.io/post/linux-an-zhuang-jdk">
-                      <h2 class="post-title">
-                        Linux安装 JDK
-                      </h2>
-                    </a>
-                  </article>
+                  <a href="https://Junmade.github.io/tag/IEXUDUztU" class="tag">
+                    Linux
+                  </a>
                 
-              
-                
-                  <article class="post">
-                    <a href="https://Junmade.github.io/post/di-yi-pian-gridea-wen-zhang">
-                      <h2 class="post-title">
-                        第一篇 Gridea文章
-                      </h2>
-                    </a>
-                  </article>
-                
-              
+              </div>
             
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://Junmade.github.io/post/di-yi-pian-gridea-wen-zhang">
+                  <h3 class="post-title">
+                    第一篇 Gridea文章
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>
