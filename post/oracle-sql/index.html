@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | Junmade</title>
+<title>Oracle SQL | Junmade</title>
 <meta name="description" content="程序员最讨厌的四件事：写注释、写文档、别人不写注释、别人不写文档">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -91,80 +91,50 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">Oracle SQL</h2>
+            <div class="post-date">2019-05-30</div>
+            
+            <div class="post-content">
+              <ul>
+<li>
+<p>查询所有表信息</p>
+<pre><code class="language-sql">-- 所有用户与本用户
+-- ALL_TAB_COMMENTS USER_TAB_COMMENTS
+-- ALL_TAB_COLUMNS  USER_TAB_COLUMNS
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+-- 查询所有表信息
+SELECT * FROM ALL_TAB_COMMENTS;
+-- 查询所有表字段信息
+SELECT * FROM ALL_TAB_COLUMNS;
+-- 根据字段，查询出包含该字段的所有的表名
+SELECT TABLE_NAME FROM ALL_TAB_COLUMNS WHERE COLUMN_NAME = '字段';
+</code></pre>
+</li>
+<li>
+<p>修改用户密码</p>
+<pre><code class="language-sql">-- sqlplus / as sysdba
+alter user 'username' identified by 'password';
+</code></pre>
+</li>
+</ul>
+
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
-              
-                
-                  <article class="post">
-                    <a href="https://Junmade.github.io/post/oracle-sql">
-                      <h2 class="post-title">
-                        Oracle SQL
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://Junmade.github.io/post/linux-ming-ling">
-                      <h2 class="post-title">
-                        Linux命令
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://Junmade.github.io/post/linux-ding-shi-bei-fen">
-                      <h2 class="post-title">
-                        Linux定时备份
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://Junmade.github.io/post/linux-an-zhuang-redis">
-                      <h2 class="post-title">
-                        Linux安装 Redis
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://Junmade.github.io/post/linux-an-zhuang-mysql57">
-                      <h2 class="post-title">
-                        Linux安装 MySQL5.7
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://Junmade.github.io/post/linux-an-zhuang-jdk">
-                      <h2 class="post-title">
-                        Linux安装 JDK
-                      </h2>
-                    </a>
-                  </article>
-                
-              
             
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://Junmade.github.io/post/linux-ming-ling">
+                  <h3 class="post-title">
+                    Linux命令
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>
